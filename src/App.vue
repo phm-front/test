@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- 使用exclud时必须给所派出的组件添加name Detail组件不需要keep alive-->
+    <keep-alive exclude="Detail">
+      <router-view></router-view>
+    </keep-alive>
+    <main-tab-bar class="main-tab-bar"></main-tab-bar>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MainTabBar from "components/content/maintabbar/MainTabBar";
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    MainTabBar
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+@import "assets/css/base.css";
+.main-tab-bar {
+  z-index: 1;
 }
 </style>
